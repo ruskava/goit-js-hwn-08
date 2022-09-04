@@ -1,8 +1,27 @@
-// Add imports above this line
+
 import { galleryItems } from './gallery-items';
-// Change code below this line
+import SimpleLightbox from "simpleLightbox/dist/simple-lightbox.esm";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 
-console.log(galleryItems);
+const makeGalleryItemMarkup = (arr) => {
+    return arr
+        .map(({ description, preview, original }) => {
+            return `<a class="gallery__item" href="${original}">
+			<img class="gallery__image" src="${preview}" alt="" title="${description}" />
+		  </a>`;
+        })
+        .join('');
+};
 
-import SimpleLightbox from 'simpleLightbox/dist/simple-lightbox.esm'
+const galleryContainerRef = document.querySelector('.gallery');
+galleryContainerRef.innerHTML = makeGalleryItemMarkup(galleryItems);
+
+const lightboxSlider = new SimpleLightbox('.gallery a ', {
+    sourceAttr: 'href',
+    captions: true,
+    captionsData: 'title',
+    captionPosition: 'bottom',
+    captionDelay: 250,
+    loop: true,
+});
