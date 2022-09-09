@@ -1,6 +1,6 @@
 
 import { galleryItems } from './gallery-items';
-import SimpleLightbox from "simpleLightbox/dist/simple-lightbox.esm";
+import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 
