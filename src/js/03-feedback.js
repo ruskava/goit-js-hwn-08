@@ -24,7 +24,7 @@ function textAreaInput(e) {
   }
   savedTextArea();
   
-  function savedTextArea() {
+   function savedTextArea() {
     const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
     email.value = savedMessage.email || '';
     message.value = savedMessage.message || '';
